@@ -28,23 +28,20 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'valloric/youcompleteme'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'spolu/dwm.vim'
-"Plugin 'markonm/traces.vim'
-"Plugin 'osyo-manga/vim-over'
 Plugin 'talek/obvious-resize'
 Plugin 'svermeulen/vim-easyclip'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'lervag/vimtex'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
-"Plugin 'easysid/mod8.vim'
 Plugin 'mswift42/vim-themes'
 Plugin 'yggdroot/indentline'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'markonm/traces.vim'
+Plugin 'christoomey/vim-system-copy'
 
 
 " All of your Plugins must be added before the following line
@@ -90,20 +87,10 @@ noremap <silent> <C-Right> :<C-U>ObviousResizeRight<CR>
 "C-K Jumps to previous window (anti-clockwise)
 "C-Space Focus the current window, that is, place it in the master pane [M] & stacks all other windows in the stacked pane [S]
 
-
-"80 column ruler
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
-"augroup vimrc_autocmds
-"	autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"	autocmd BufEnter * match OverLength /\%81v.*/
-"augroup END
-
-"set ruler
-
 set mouse=a
 set ttymouse=xterm2
 
+"share with system clipboard"
 set clipboard=unnamed
 
 filetype plugin on
@@ -121,3 +108,6 @@ let g:vimtex_view_general_viewer = 'evince'
 
 "colorscheme soft-charcoal
 set cursorline
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
